@@ -2,6 +2,7 @@
 
 int main() {
     //ppm file output
+    //use ppm image viewer software or extension
     //image
     int img_width = 256;
     int img_height = 256;
