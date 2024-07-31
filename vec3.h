@@ -100,4 +100,5 @@ inline vec3 unit_vector(const vec3& v) {
     return v / v.length();
 }
 
+//note double used but takes more space, float also can be used and takes less space like in hardware shaders
 #endif
