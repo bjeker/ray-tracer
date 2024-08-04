@@ -12,7 +12,7 @@ class ray {
 
         //return an immutable reference to members, either use reference directly or make mutable copy
         const point3& origin() const { return orig; }
-        const vec3& direc() const { return dir; }
+        const vec3& direction() const { return dir; }
 
         //t is a real num value that can change the point along the ray
         point3 at(double t) const {
