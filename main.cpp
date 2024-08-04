@@ -47,7 +47,7 @@ int main() {
     auto focal_length = 1.0;
     auto viewport_height = 2.0;
     //get the actual ratio for image, not just ideal from aspect ratio
-    auto viewport_width = viewport_height * double(img_width / img_height);
+    auto viewport_width = viewport_height * (double(img_width) / img_height);
     auto camera_center = point3(0, 0, 0);
 
     //calc vectors across horizontal and down vertical viewport edges
