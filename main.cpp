@@ -4,9 +4,30 @@
 
 #include <iostream>
 
+//placing a sphere for ray tracing
+bool hit_sphere(const point3& center, double radius, const ray& r) {
+    vec3 oc = center - r.origin();
+
+    //equation for quadratic positioning broken down
+    auto a = dot(r.direction(), r.direction());
+    auto b = -2.0 * dot(r.direction(), oc);
+    auto c = dot(oc, oc) - radius * radius;
+    //quadratic formula
+    auto discremenant = b * b - 4 * a * c;
+
+    return (discremenant >= 0);
+}
+
+//colors the ray when hit
 color ray_color(const ray& r) {
+    //check if ray hits sphere placed at -1
+    if (hit_sphere(point3(0, 0, -1), 0.5, r)) {
+        return color(1, 0, 0);
+    }
+
     vec3 unit_direction = unit_vector(r.direction());
     auto a = 0.5 * (unit_direction.y() + 1.0);
+
     return (1.0 - a) * color(1.0, 1.0, 1.0) + color(0.5, 0.7, 1.0);
 }
 
@@ -59,5 +80,6 @@ int main() {
 
     //spaces needed in order to overwrit the "scalines remaining" update from code running
     std::clog << "\rDone.                    \n";
+
     return 0;
 }
